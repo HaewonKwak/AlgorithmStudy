@@ -7,13 +7,11 @@
 //
 //https://www.careercup.com/question?id=4855286160424960
 
-func findMinimumConsecutiveSubString(s: String, t: String) -> String {
-    if s.characters.count < t.characters.count { return "" }
+func findMinimumConsecutiveSubString(s: String, t: String) -> String? {
+    if s.characters.count < t.characters.count { return nil }
     
-    var minLength = -1
-    var minEndIndex = 0
+    var minLength = -1, minEndIndex = 0, letterCounter = 0
     var characters: [Character: Int] = [ : ]
-    var letterCounter = 0
     var uniqueElement: [Character] = []
     for element in t.characters {
         uniqueElement.append(element)
@@ -62,10 +60,10 @@ func findMinimumConsecutiveSubString(s: String, t: String) -> String {
         let end = s.startIndex.advancedBy(minEndIndex)
         return s[start...end]
     } else {
-        return ""
+        return nil
     }
 }
 
-print(findMinimumConsecutiveSubString("adobecodebanc", t: "abc"))
+print(findMinimumConsecutiveSubString("abccdefeeegeefcb", t: "bcf"))
 
 

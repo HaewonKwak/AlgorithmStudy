@@ -6,6 +6,10 @@
 
 func stringFromNumber(inputNumber: Int) -> String {
     
+    if inputNumber == 0 {
+        return "zero"
+    }
+    
     var number = inputNumber
     let numbers = ["", "one", "two", "three", "four", "five", "six", "sever", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
     let tenNumbers = ["twenty", "thrity", "forty", "fifty", "sixty", "seventy", "eighty", "ninty", "hundred"]
@@ -38,9 +42,9 @@ func stringFromNumber(inputNumber: Int) -> String {
                 let tenNumber = div / 10
                 tempNumberString = tempNumberString + " " + tenNumbers[tenNumber -
                     2]
-                let numberDiv = div % 10
-                if numberDiv > 0 {
-                    tempNumberString = tempNumberString + "-" + numbers[numberDiv]
+                div %= 10
+                if div > 0 {
+                    tempNumberString = tempNumberString + "-" + numbers[div]
                 }
             }
             
@@ -57,4 +61,4 @@ func stringFromNumber(inputNumber: Int) -> String {
     return numberString
 }
 
-print(stringFromNumber(100))
+print(stringFromNumber(100390))

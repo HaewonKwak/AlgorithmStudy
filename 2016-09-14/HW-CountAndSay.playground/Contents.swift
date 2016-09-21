@@ -13,12 +13,10 @@ import UIKit
 //http://www.programcreek.com/2014/03/leetcode-count-and-say-java/
 //
 
-func countAndSay(var count: Int) -> Int {
-    var value = 1
-    while count > 0 {
-        var result = 0
-        var prevNumber = -1
-        var counter = 10
+func countAndSay(count: Int) -> Int {
+    var variableCount = count, value = 1
+    while variableCount > 0 {
+        var result = 0, prevNumber = -1, counter = 10
         while value != 0 {
             let mod = value % 10
 
@@ -34,7 +32,7 @@ func countAndSay(var count: Int) -> Int {
             value /= 10
         }
         value = result
-        count -= 1
+        variableCount -= 1
     }
     return value
 }

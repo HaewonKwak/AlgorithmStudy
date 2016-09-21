@@ -9,10 +9,7 @@ import UIKit
 func longestSubString(let text: String, distinctCharacters: Int) -> String
 {
     var characters: [Character: Int] = [:]
-    var index = 0
-    var letterCounter = 0
-    var letterMaxIndex = 0
-    var letterMax = 0
+    var index = 0, letterCounter = 0, letterMaxIndex = 0, letterMax = 0
 
     while index < text.characters.count {
         let character = text[text.startIndex.advancedBy(index)]
