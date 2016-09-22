@@ -22,6 +22,11 @@ func findMinimumConsecutiveSubString(s: String, t: String) -> String? {
         let character = s[s.startIndex.advancedBy(index)]
         if let charIndex = uniqueElement.indexOf(character) {
             uniqueElement.removeAtIndex(charIndex)
+            if t.characters.count == letterCounter + 1 {
+                let start = s.startIndex.advancedBy(index - t.characters.count + 1)
+                let end = s.startIndex.advancedBy(index)
+                return s[start...end]
+            }
             characters[character] = index
         } else {
             if t.characters.contains(character) {
@@ -65,6 +70,6 @@ func findMinimumConsecutiveSubString(s: String, t: String) -> String? {
     }
 }
 
-print(findMinimumConsecutiveSubString("abccdeeeeeffcabd", t: "bcfd"))
+print(findMinimumConsecutiveSubString("abccdeeeeeffcabd", t: "ba"))
 
 
